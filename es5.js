@@ -47,18 +47,33 @@ function Bank(numeroConto, intestatario, saldo) {
 }
 
 
-let gruppo = [
-    new Bank('101010', 'Mario Rossi ', 1200),
-    new Bank('202020', 'Paolo Cagliari ', 1400),
-    new Bank('303030', 'Marta Ferrari ', 800)
-];
+var conto1 = new Bank('101010', 'Mario Rossi ', 1200);
+var conto2 = new Bank('202020', 'Paolo Cagliari ', 1400);
+var conto3 = new Bank('303030', 'Marta Ferrari ', 800);
 
-gruppo.forEach(function (conto) {
-    conto.stampaNumeroConto();
-    conto.stampaIntestatario();
-    conto.stampaSaldo();
-    conto.deposito(200);
-    conto.prelievo(50);
-    conto.visualizzaSaldo();
-    conto.interessi();
-});
+conto1.stampaNumeroConto();
+conto1.stampaIntestatario();
+conto1.stampaSaldo();
+conto1.deposito(260);
+conto1.prelievo(500);
+conto1.visualizzaSaldo();
+conto1.interessi();
+console.log('------------')
+
+conto2.stampaNumeroConto();
+conto2.stampaIntestatario();
+conto2.stampaSaldo();
+conto2.deposito(200);
+conto2.prelievo(50);
+conto2.visualizzaSaldo();
+conto2.interessi();
+console.log('------------')
+
+conto3.stampaNumeroConto();
+conto3.stampaIntestatario();
+conto3.stampaSaldo();
+conto3.deposito(300);
+conto3.prelievo(1000);
+conto3.visualizzaSaldo();
+conto3.interessi();
+console.log('------------')
