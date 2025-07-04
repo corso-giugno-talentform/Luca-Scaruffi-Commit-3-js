@@ -6,7 +6,7 @@ function Bank(numeroConto, intestatario, saldo) {
 
     this.stampaNumeroConto = function () {
         if (this.numeroConto) {
-            console.log('numero conto:  ' + this.numeroConto)
+            console.log('numero conto: ' + this.numeroConto)
         } else {
             console.log('numero conto inesistente')
         }
@@ -15,26 +15,50 @@ function Bank(numeroConto, intestatario, saldo) {
         if (this.intestatario) {
             console.log('nome intestatario: ' + this.intestatario)
         } else {
-            console.log('Intestatario inesistente:')
+            console.log('Intestatario inesistente: ')
         }
     };
     this.stampaSaldo = function () {
         if (this.saldo) {
             console.log('saldo: ' + this.saldo)
         } else {
-            console.log('saldo non disponibile:')
+            console.log('saldo non disponibile: ')
         }
-    }
+    };
+    this.deposito = function (importo) {
+        this.saldo += importo;
+        console.log(this.intestatario + 'ha depositato ' + importo + 'Euro')
+    };
+    this.prelievo = function (importo) {
+        if (importo <= this.saldo) {
+            this.saldo = this.saldo - importo;
+            console.log(this.intestatario + 'ha prelevato: ' + importo + 'Euro');
+        } else {
+            console.log('fondi insufficienti per: ' + this.intestatario);
+        }
+    };
+    this.visualizzaSaldo = function () {
+        console.log('saldo di ' + this.intestatario + ': ' + this.saldo + 'Euro');
+    };
+    this.Interessi = function () {
+        let Interessi = (this.saldo * 1) / 100;
+        console.log('calcolo interessi di ' + this.intestatario + ': ' + Interessi + 'Euro');
+    };
 }
 
+
 let gruppo = [
-    new Bank('101010', 'Mario Rossi', '1200 Euro'),
-    new Bank('202020', 'Paolo Cagliari', '1400 Euro'),
-    new Bank('303030', 'Marta Ferrari', '800 Euro')
+    new Bank('101010', 'Mario Rossi', 1200),
+    new Bank('202020', 'Paolo Cagliari', 1400),
+    new Bank('303030', 'Marta Ferrari', 800)
 ];
 
 gruppo.forEach(function (conto) {
     conto.stampaNumeroConto();
     conto.stampaIntestatario();
     conto.stampaSaldo();
+    conto.deposito(200);
+    conto.prelievo(50);
+    conto.visualizzaSaldo();
+    conto.Interessi();
 });
