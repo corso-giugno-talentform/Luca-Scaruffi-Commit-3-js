@@ -27,30 +27,30 @@ function Bank(numeroConto, intestatario, saldo) {
     };
     this.deposito = function (importo) {
         this.saldo += importo;
-        console.log(this.intestatario + 'ha depositato ' + importo + 'Euro')
+        console.log(this.intestatario + 'ha depositato ' + importo + ' Euro')
     };
     this.prelievo = function (importo) {
         if (importo <= this.saldo) {
             this.saldo = this.saldo - importo;
-            console.log(this.intestatario + 'ha prelevato: ' + importo + 'Euro');
+            console.log(this.intestatario + 'ha prelevato: ' + importo + ' Euro');
         } else {
             console.log('fondi insufficienti per: ' + this.intestatario);
         }
     };
     this.visualizzaSaldo = function () {
-        console.log('saldo di ' + this.intestatario + ': ' + this.saldo + 'Euro');
+        console.log('saldo di ' + this.intestatario + ': ' + this.saldo + ' Euro');
     };
-    this.Interessi = function () {
-        let Interessi = (this.saldo * 1) / 100;
-        console.log('calcolo interessi di ' + this.intestatario + ': ' + Interessi + 'Euro');
+    this.interessi = function () {
+        let interessi = (this.saldo * 1) / 100;
+        console.log('calcolo interessi di ' + this.intestatario + ': ' + interessi + ' Euro');
     };
 }
 
 
 let gruppo = [
-    new Bank('101010', 'Mario Rossi', 1200),
-    new Bank('202020', 'Paolo Cagliari', 1400),
-    new Bank('303030', 'Marta Ferrari', 800)
+    new Bank('101010', 'Mario Rossi ', 1200),
+    new Bank('202020', 'Paolo Cagliari ', 1400),
+    new Bank('303030', 'Marta Ferrari ', 800)
 ];
 
 gruppo.forEach(function (conto) {
@@ -60,5 +60,5 @@ gruppo.forEach(function (conto) {
     conto.deposito(200);
     conto.prelievo(50);
     conto.visualizzaSaldo();
-    conto.Interessi();
+    conto.interessi();
 });
